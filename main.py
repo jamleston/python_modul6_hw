@@ -28,8 +28,6 @@ class Record:
                 if phone == phone_to_remove:
                     index = self.phones.index(phone)
                     self.phones.pop(index)
-                # else:
-                #     return ValueError
 
     def edit_phone(self, old, new):
         for phone in self.phones:
@@ -39,7 +37,6 @@ class Record:
             else:
                 self.remove_phone(old)
                 self.add_phone(new)
-                return('block if')
 
     def __str__(self):
         phones_str = '; '.join(self.phones)
@@ -64,7 +61,6 @@ john_record.add_phone("5555555555")
 print(john_record)
 # print(jane_record)
 
-john_record.edit_phone("5555555555", "5555555556")
 
 print(john_record)
 # print(jane_record)
