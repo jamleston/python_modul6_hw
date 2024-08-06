@@ -30,13 +30,14 @@ class Record:
                     self.phones.pop(index)
 
     def edit_phone(self, old, new):
-        for phone in self.phones:
-            if phone != old:
-                comment = 'we dont have such number, try another'
-                raise ValueError(comment)
-            else:
-                self.remove_phone(old)
-                self.add_phone(new)
+        if old in self.phones:
+            self.remove_phone(old)
+            self.add_phone(new)
+        else:
+            comment = 'we dont have such number, try another'
+            raise ValueError(comment)
+            
+            
 
     def __str__(self):
         phones_str = '; '.join(self.phones)
@@ -61,6 +62,7 @@ john_record.add_phone("5555555555")
 print(john_record)
 # print(jane_record)
 
+john_record.edit_phone('5555555555', '5555555556')
 
 print(john_record)
 # print(jane_record)
